@@ -1,0 +1,9 @@
+{
+    "require-dev": {
+        "pds/skeleton": "^1.0"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.4",
+        "thingengineer/mysqli-database-class": "dev-master"
+    }
+}

@@ -1,0 +1,8 @@
+/.vscode/
+/vendor/
+/tests/
+composer.lock
+access.log
+error.log
+.env
+.htaccess
