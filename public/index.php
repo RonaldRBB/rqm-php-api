@@ -11,5 +11,33 @@
  * @link     https://ronaldrbb.github.io/RonaldRBB/
  */
 
-echo '<h1>Index Real</h1>';
-exit();
+/**
+ * Modules
+ * -----------------------------------------------------------------------------
+ */
+require_once($_SERVER['DOCUMENT_ROOT'] . "/vendor/autoload.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/src/functions.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/src/classes/quote.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/controllers/main.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/controllers/random.php");
+/**
+ * Deny Direct Access to File
+ * -----------------------------------------------------------------------------
+ */
+\RQM\functions\denyDirectAccess();
+/**
+ * Environment
+ * -----------------------------------------------------------------------------
+ */
+$dotenv = Dotenv\Dotenv::createImmutable("../");
+$dotenv->load();
+/**
+ * Globals
+ * -----------------------------------------------------------------------------
+ */
+$db = \RQM\functions\loadDatabase();
+define("CONFIG", include("../config/config.php"));
+/**
+ * Main
+ */
+\RQM\controllers\main();

@@ -21,7 +21,7 @@
  */
 function getJsonFile()
 {
-    $jsonFile = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/quotes.json");
+    $jsonFile = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/quotes.json");
     $jsonFile = json_decode($jsonFile, true);
     return $jsonFile;
 }

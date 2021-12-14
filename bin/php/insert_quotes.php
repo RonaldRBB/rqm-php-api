@@ -15,8 +15,8 @@
  * Environment variables
  * -----------------------------------------------------------------------------
  */
-require('../../vendor/autoload.php');
-$dotenv = Dotenv\Dotenv::createImmutable('../../');
+require("../../vendor/autoload.php");
+$dotenv = Dotenv\Dotenv::createImmutable("../../");
 $dotenv->load();
 
 /**
@@ -29,7 +29,7 @@ $dotenv->load();
  */
 function getJsonFile()
 {
-    $jsonFile = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/quotes.json");
+    $jsonFile = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/quotes.json");
     $jsonFile = json_decode($jsonFile, true);
     return $jsonFile;
 }
@@ -46,7 +46,7 @@ function deleteDuplicatedQuotes($quotes)
         }
         $duplicated = false;
         foreach ($cleanQuotes as $cleanQuote) {
-            if (strtolower($cleanQuote['text']) == strtolower($quote['text'])) {
+            if (strtolower($cleanQuote["text"]) == strtolower($quote["text"])) {
                 $duplicated = true;
             }
         }
@@ -70,7 +70,7 @@ function insertQuotes($quotes)
         foreach ($quotes as $quote) {
             $sql = "INSERT INTO `ronaldrbb_rqm_quotes` (id, quote, author) VALUES (?, ?, ?)";
             $stmt = $db->prepare($sql);
-            $stmt->execute([null, $quote['text'], $quote['author']]);
+            $stmt->execute([null, $quote["text"], $quote["author"]]);
         }
         $db->commit();
     } catch (Exception $e) {
@@ -86,7 +86,7 @@ function main()
 {
     $quotes = deleteDuplicatedQuotes(getJsonFile());
     // foreach ($quotes as $quote) {
-    //     echo $quote['text'] . " - " . $quote['author'] . "<br>";
+    //     echo $quote["text"] . " - " . $quote["author"] . "<br>";
     // }
     insertQuotes($quotes);
 }
