@@ -47,7 +47,7 @@ class Quote
     /**
      * Get QUote Randomly
      * -------------------------------------------------------------------------
-     * 
+     *
      * @return void
      */
     public function getRandomly()

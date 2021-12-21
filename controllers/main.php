@@ -14,9 +14,9 @@
 namespace RQM\controllers;
 
 /**
- * Main - Get method
+ * Main Controller
  * -----------------------------------------------------------------------------
- * Send a random quote to the client.
+ * Control for all pages.
  *
  * @return void
  */
@@ -25,6 +25,6 @@ function main()
     if ($_SERVER["REQUEST_URI"] == "/random") {
         \RQM\controllers\randomGet();
     } else {
-        var_dump("pagina incorrecta");
+        \RQM\functions\denyAccess();
     }
 }

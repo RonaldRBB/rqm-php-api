@@ -24,6 +24,7 @@ function randomGet()
 {
     $quote = new \RQM\classes\Quote();
     $quote->getRandomly();
-    header('Content-Type: application/json; charset=utf-8');
+    header("access-control-allow-origin: *");
+    header("Content-Type: application/json; charset=utf-8");
     echo json_encode($quote);
 }
