@@ -1,8 +1,9 @@
-/.vscode/
-/vendor/
-/tests/
-composer.lock
-access.log
-error.log
 .env
 .htaccess
+/.vscode/
+/tests/
+/vendor/
+access.log
+composer.lock
+error.log
+quotes.csv
