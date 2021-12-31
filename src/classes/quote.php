@@ -26,9 +26,10 @@ namespace RQM\classes;
 class Quote
 {
     public $id = null;
-    public $author = null;
     public $text = null;
-    private $table = "quotes";
+    public $author = null;
+    public $category = null;
+    private $table = "quotes_view";
     /**
      * Get Quote By Id
      * -------------------------------------------------------------------------
@@ -45,7 +46,7 @@ class Quote
         }
     }
     /**
-     * Get QUote Randomly
+     * Get Quote Randomly
      * -------------------------------------------------------------------------
      *
      * @return void
@@ -70,8 +71,9 @@ class Quote
     private function updateClass($quote)
     {
         $this->id = $quote["id"];
-        $this->author = $quote["author"];
         $this->text = $quote["quote"];
+        $this->author = $quote["author"];
+        $this->category = $quote["category"];
     }
     /**
      * Get Quote By ID From DB
